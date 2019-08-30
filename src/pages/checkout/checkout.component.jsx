@@ -7,6 +7,7 @@ import {
   selectCartItems,
   selectCartTotal
 } from "../../redux/cart/cart.selectors";
+import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 
 const CheckoutPage = ({ cartItems, total }) => (
   <div className='checkout-page'>
@@ -28,15 +29,12 @@ const CheckoutPage = ({ cartItems, total }) => (
       </div>
     </div>
 
-    {
-      cartItems.map(
-        cartItem => cartItem.name
-      )
-    }
-      <div className="total">
-        <span>TOTAL: ${total}</span>
-      </div>
-    
+    {cartItems.map(cartItem => (
+      <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+    ))}
+    <div className='total'>
+      <span>TOTAL: ${total}</span>
+    </div>
   </div>
 );
 
