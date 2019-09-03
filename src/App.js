@@ -18,6 +18,13 @@ class App extends React.Component {
 
   unsubscribeFromAuth = null;
 
+  constructor(props) {
+    super(props);
+    const { currentUser } = props;
+    console.info('inside constructor');
+    console.log(props);
+  }
+
   componentDidMount() {
 
     const { setCurrentUser } = this.props;
